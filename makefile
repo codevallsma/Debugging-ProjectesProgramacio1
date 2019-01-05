@@ -11,7 +11,7 @@ $(OUT): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(OUT) $(DLIBS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c -g $< -o $@
 
 clean_o:
 	rm $(OBJECTS)
