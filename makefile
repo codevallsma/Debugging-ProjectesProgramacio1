@@ -1,4 +1,4 @@
-CFLAGS = -O2 -w
+CFLAGS = -O0 -w
 DLIBS = -lm
 OUT = tripo
 CC = gcc

@@ -103,7 +103,7 @@ double travelThroughAltitude(double ** travelAltitude, int i, int j, int n) {
 
 	advanceInDirection(&newI, &newJ, min);
 
-	return travelAltitude[i][j] + travelThroughAltitude(travelAltitude, i, j, n);
+	return travelAltitude[i][j] + travelThroughAltitude(travelAltitude, i+1, j+1, n);
 }
 
 // Retorna una estimació del temps de viatge des de BCN segons l'altitud
@@ -120,7 +120,7 @@ double getTimeFromBcn(Destination dest) {
 void mapAltitude(double ** travelAltitude, char ** map, int i, int j, int n) {
 	map[i + 1][j + 1] = ' ';
 
-	if (i == n - 1 && j == n - 1) {
+	if (i == n - 1 || j == n - 1) {
 		return;
 	}
 
@@ -138,9 +138,8 @@ void mapAltitude(double ** travelAltitude, char ** map, int i, int j, int n) {
 
 	advanceInDirection(&newI, &newJ, min);
 
-	mapAltitude(travelAltitude, map, i, j, n);
+	mapAltitude(travelAltitude, map, i+1, j+1, n);
 }
-
 
 // Retorna un mapeig del recorregut segons l'altitud mínima, amb un marc
 char ** mapAltitudeTravel(Destination dest) {
@@ -173,8 +172,6 @@ char * readString(FILE * file) {
 	int size = 10;
 	char tmp;
 	char* ret = (char*) malloc(sizeof(char) * size);
-
-
 	fscanf(file, "%c", &tmp);
 	do {
 		i++[ret] = tmp;
