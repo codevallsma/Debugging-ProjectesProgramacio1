@@ -26,8 +26,16 @@ void showAllDestinations(List *l) {
 int comparePrices(const void * a, const void * b) {
 	double aValue = *((double *) a);
 	double bValue = *((double *) b);
+	int returnValue=0;
 
-	return round(bValue + aValue);
+	if(aValue < bValue){
+		returnValue= -1;
+	}else if(aValue > bValue){
+		returnValue=1;
+	}else{
+		returnValue=0;
+	}
+	return returnValue;;
 }
 
 void planTrip(List *l){
