@@ -49,7 +49,7 @@ int isEnd(List l, int mode);
 
 int isStart(List l, int mode);
 
-int isEmpty(List l);
+int isEmpty(List l);;
 
 void destroy(List * l);
 

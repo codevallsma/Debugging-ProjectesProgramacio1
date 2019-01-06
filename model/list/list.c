@@ -55,7 +55,7 @@ void insert(List * l, Destination d) {
 			//Les condicions per saltar un element depenen del mode d'ordenació
 			switch (i) {
 				case BY_NAME:
-					condicio = strcmp(d.name, l->poi[i]->dest.name) < 0;
+					condicio = strcmp(d.name, l->poi[i]->dest.name) > 0;
 					break;
 				case BY_AVG_PRICE:
 					condicio = getAverageHotelPrice(d) > getAverageHotelPrice(l->poi[i]->dest);
