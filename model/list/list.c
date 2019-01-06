@@ -48,14 +48,14 @@ void insert(List * l, Destination d) {
 			//Avancem al següent element i mirem si aquest encara l'hem de saltar
 			l->poi[i] = l->poi[i]->next[i];
 
-			if (l->poi[i] = l->last) {
+			if (l->poi[i] == l->last) {
 				break;
 			}
 
 			//Les condicions per saltar un element depenen del mode d'ordenació
 			switch (i) {
 				case BY_NAME:
-					condicio = strcmp(d.name, l->poi[i]->dest.name) > 0;
+					condicio = strcmp(d.name, l->poi[i]->dest.name) < 0;
 					break;
 				case BY_AVG_PRICE:
 					condicio = getAverageHotelPrice(d) > getAverageHotelPrice(l->poi[i]->dest);
