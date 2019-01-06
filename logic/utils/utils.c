@@ -4,7 +4,9 @@
 
 
 void resize(char ** pointer, int size) {
-	char * new = (char *) malloc(sizeof(char) * size);
+	char * new =(char *) malloc(sizeof(char) * size);
 
 	memcpy(new, *pointer, sizeof(char) * size);
+	free(*pointer);
+	*pointer=new;
 }
