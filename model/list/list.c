@@ -105,6 +105,7 @@ void removePoi(List * l, int mode) {
 			aux -> next[i] -> prev[i] = aux -> prev[i];
 		}
 		l -> n--;
+		free(aux);
 	}
 }
 
@@ -157,11 +158,13 @@ int isEmpty(List l) {
 }
 
 void destroy(List * l) {
-
-	goStart(l, 0);
-
-	while (!isEmpty(*l)) {
-		removePoi(l, 0);
+	for(int i=0; i< MAX_SORTING; i++){
+		goStart(l, i);
+		while (!isEmpty(*l)) {
+			removePoi(l, i);
+		}
 	}
-
+	//now we can destroy the List structure
+	free(l->first);
+	free(l->last);
 }
